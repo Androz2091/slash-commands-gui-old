@@ -2,7 +2,7 @@
     <div>
         <b-navbar>
             <template slot="brand">
-                <b-navbar-item tag="router-link" :to="{ path: '/' }">
+                <b-navbar-item>
                     <h3>Slash Commands GUI</h3>
                 </b-navbar-item>
             </template>

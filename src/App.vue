@@ -15,6 +15,9 @@ export default {
         NavBar,
         Gui
     },
+    beforeCreate () {
+        this.$store.dispatch('loadToken');
+    }
 };
 </script>
 
