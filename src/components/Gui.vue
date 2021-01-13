@@ -3,13 +3,13 @@
         <hr>
         <b-container class="config">
             <b-row>
-                <b-col cols="12" sm="12" md="5" lg="5" xl="5">
+                <b-col cols="12" sm="12" md="5">
                     <b-input v-model="token" class="config-el" placeholder="Your super secret Discord bot token"></b-input>
                 </b-col>
-                <b-col cols="12" sm="12" md="5" lg="5" xl="5">
+                <b-col cols="12" sm="12" md="3">
                     <b-input v-model="guildID" class="config-el" placeholder="Guild ID (optional)"></b-input>
                 </b-col>
-                <b-col cols="12" sm="12" md="5" lg="5" xl="5">
+                <b-col cols="12" sm="12" md="4">
                     <b-button class="load-btn text-white config-el" @click="loadCommands()" :disabled="loadBtnDisabled">Load Slash Commands</b-button>
                 </b-col>
             </b-row>
@@ -19,7 +19,7 @@
             <h1 class="text-white title is-4">{{ $store.state.guildID ? `${$store.state.guild.name}'s` : 'Global' }} Slash Commands</h1>
             <p v-if="$store.state.guildID" class="text-white">As you specified a guild ID, the results shown are the commands dedicated to the {{ $store.state.guild.name }} server. Click <a @click="switchGlobal" href="#">here</a> to load all the global commands.</p>
             <b-row>
-                <b-col v-for="command in $store.state.commands" :key="command.name" cols="12" sm="6" md="3" lg="3" xl="2">
+                <b-col v-for="command in $store.state.commands" :key="command.name" cols="12" sm="6" md="3">
                     <SlashCommand :name="command.name" :description="command.description" />
                 </b-col>
                 <b-col>
