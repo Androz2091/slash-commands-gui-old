@@ -3,14 +3,14 @@
         <hr>
         <b-container class="config">
             <b-row>
-                <b-col cols="5">
-                    <b-input v-model="token" placeholder="Your super secret Discord bot token"></b-input>
+                <b-col cols="12" sm="12" md="5" lg="5" xl="5">
+                    <b-input v-model="token" class="config-el" placeholder="Your super secret Discord bot token"></b-input>
                 </b-col>
-                <b-col cols="3">
-                    <b-input v-model="guildID" placeholder="Guild ID (optional)"></b-input>
+                <b-col cols="12" sm="12" md="5" lg="5" xl="5">
+                    <b-input v-model="guildID" class="config-el" placeholder="Guild ID (optional)"></b-input>
                 </b-col>
-                <b-col cols="4">
-                    <b-button class="load-btn text-white" @click="loadCommands()" :disabled="loadBtnDisabled">Load Slash Commands</b-button>
+                <b-col cols="12" sm="12" md="5" lg="5" xl="5">
+                    <b-button class="load-btn text-white config-el" @click="loadCommands()" :disabled="loadBtnDisabled">Load Slash Commands</b-button>
                 </b-col>
             </b-row>
         </b-container>
@@ -18,8 +18,8 @@
         <b-container class="results" v-if="loaded">
             <h1 class="text-white title is-4">{{ $store.state.guildID ? `${$store.state.guild.name}'s` : 'Global' }} Slash Commands</h1>
             <p v-if="$store.state.guildID" class="text-white">As you specified a guild ID, the results shown are the commands dedicated to the {{ $store.state.guild.name }} server. Click <a @click="switchGlobal" href="#">here</a> to load all the global commands.</p>
-            <b-row cols="3">
-                <b-col v-for="command in $store.state.commands" :key="command.name" >
+            <b-row>
+                <b-col v-for="command in $store.state.commands" :key="command.name" cols="12" sm="6" md="3" lg="3" xl="2">
                     <SlashCommand :name="command.name" :description="command.description" />
                 </b-col>
                 <b-col>
@@ -83,6 +83,9 @@ hr {
 }
 .config {
     padding-top: 5px;
+}
+.config-el {
+    margin-top: 5px;
 }
 .load-btn {
     background-color: #7289DA;
