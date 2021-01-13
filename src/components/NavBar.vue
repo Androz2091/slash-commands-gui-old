@@ -1,22 +1,16 @@
 <template>
-    <div>
-        <b-navbar>
-            <template slot="brand">
-                <b-navbar-item>
-                    <h3>Slash Commands GUI</h3>
-                </b-navbar-item>
-            </template>
-            <template slot="end">
-                <b-navbar-item tag="div">
-                    <div class="buttons">
-                        <a class="button is-primary" href="https://androz2091.fr/discord">
-                            <strong>Discord</strong>
-                        </a>
-                    </div>
-                </b-navbar-item>
-            </template>
-        </b-navbar>
-    </div>
+    <b-navbar toggleable="lg" type="dark" variant="info" class="bg-discord">
+        <b-navbar-brand href="#">Slash Commands GUI</b-navbar-brand>
+
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+        <b-collapse id="nav-collapse" is-nav>
+
+        <b-navbar-nav class="ml-auto">
+            <b-button size="sm" class="my-2 my-sm-0 bg-discord-btn">Discord</b-button>
+        </b-navbar-nav>
+        </b-collapse>
+    </b-navbar>
 </template>
 
 <script>
@@ -30,7 +24,11 @@ export default {
 * {
     color: white;
 }
-.navbar {
-    background-color: #7289DA;
+.bg-discord {
+    background-color: #7289DA !important;
+};
+.bg-discord-btn {
+    background-color: #FFFFFF;
+    color: black;
 }
 </style>

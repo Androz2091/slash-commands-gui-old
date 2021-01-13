@@ -1,19 +1,7 @@
 <template>
-    <div class="card">
-        <header class="card-header">
-            <p class="card-header-title">
-                /{{ name }}
-            </p>
-        </header>
-        <div class="card-content">
-            <div class="content">
-            {{ description }}
-            </div>
-        </div>
-        <footer class="card-footer">
-            <a href="#" class="card-footer-item" style="color: red;">Delete</a>
-        </footer>
-    </div>
+    <b-card text-variant="white" :header="'/'+name" class="text-center" @click="openSubCommand">
+        <b-card-text>{{ description }}</b-card-text>
+      </b-card>
 </template>
 
 <script>
@@ -22,26 +10,28 @@ export default {
     props: {
         name: String,
         description: String
+    },
+    methods: {
+        openSubCommand () {
+            alert('coucou');
+        }
     }
 };
 </script>
 
 <style lang="scss" scoped>
-.card-footer {
-    border-top: 0 !important;
-};
+.card {
+    margin-top: 20px;
+    min-height: 140px;
+    cursor: pointer;
+}
 .card-footer-item {
     background-color: #23272A;
 };
-.card-header-title {
-    color: white;
+.card-header {
     background-color: #23272A;
 };
-.card-content {
+.card-body {
     background-color: #2C2F33;
-    color: white;
-};
-.card {
-    border-radius: 0%;
 };
 </style>
