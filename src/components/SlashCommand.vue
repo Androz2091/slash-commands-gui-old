@@ -29,11 +29,11 @@ export default {
 }
 .card-footer-item {
     background-color: #23272A;
-};
+}
 .card-header {
     background-color: #23272A;
-};
+}
 .card-body {
     background-color: #2C2F33;
-};
+}
 </style>

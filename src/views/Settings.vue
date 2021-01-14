@@ -157,7 +157,7 @@ input {
 }
 .title {
     margin-top: 20px;
-};
+}
 .center {
     margin: 0;
     position: absolute;

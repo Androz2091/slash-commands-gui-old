@@ -31,7 +31,7 @@ export default {
 }
 .bg-discord {
     background-color: #7289DA !important;
-};
+}
 .bg-discord-btn {
     background-color: #FFFFFF;
     color: black;

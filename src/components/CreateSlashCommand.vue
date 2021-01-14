@@ -125,7 +125,7 @@ export default {
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-};
+}
 .card {
     margin-top: 20px;
     min-height: 140px;
@@ -134,11 +134,11 @@ export default {
 }
 .card-footer-item {
     background-color: #23272A;
-};
+}
 .card-header {
     background-color: #23272A;
-};
+}
 .card-body {
     background-color: #2C2F33;
-};
+}
 </style>
