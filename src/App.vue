@@ -1,23 +1,27 @@
 <template>
   <div id="app">
     <NavBar />
-    <Gui />
+    <router-view />
   </div>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue';
-import Gui from './components/Gui.vue';
 import registerSW from './registerServiceWorker';
 
 export default {
     name: 'App',
     components: {
-        NavBar,
-        Gui
+        NavBar
     },
     beforeCreate () {
-        this.$store.dispatch('loadToken');
+        this.$store.dispatch('loadCache');
+        if (
+            !this.$store.state.settings.token
+            || !this.$store.state.settings.proxyURL
+            || !this.$store.state.application
+            || !this.$store.state.guild
+        ) this.$router.push('/settings');
     },
     mounted () {
         if (window.location.protocol === 'https:') registerSW();
