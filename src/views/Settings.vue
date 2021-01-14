@@ -132,6 +132,7 @@ export default {
                                 application,
                                 guild
                             });
+                            this.$store.commit('SET_COMMANDS', []);
                             this.$router.push('/');
                         }
                     });
