@@ -31,3 +31,8 @@ export function fetchCommands (token, proxyURL, applicationID, guildID) {
     const url = `applications/${applicationID}/${guildID ? `guilds/${guildID}/commands` : 'commands'}`;
     return request(token, proxyURL, url, 'GET');
 }
+
+export function updateCommand (token, proxyURL, applicationID, guildID, command) {
+    const url = `applications/${applicationID}/${guildID ? `guilds/${guildID}/commands` : 'commands'}`;
+    return request(token, proxyURL, url, 'POST', command);
+}

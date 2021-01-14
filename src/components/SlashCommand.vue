@@ -1,7 +1,7 @@
 <template>
-    <b-card text-variant="white" :header="'/'+name" class="text-center" @click="openSubCommand">
+    <b-card text-variant="white" :header="'/'+name" class="text-center" @click="openCommandConfig">
         <b-card-text>{{ description }}</b-card-text>
-      </b-card>
+    </b-card>
 </template>
 
 <script>
@@ -9,11 +9,13 @@ export default {
     name: 'SlashCommand',
     props: {
         name: String,
-        description: String
+        description: String,
+        id: String,
+        options: Array
     },
     methods: {
-        openSubCommand () {
-            alert('coucou');
+        openCommandConfig () {
+            this.$router.push(`/commands/${this.id}`);
         }
     }
 };

@@ -5,7 +5,7 @@
             <!-- <p v-if="$store.state.guildID" class="text-white">As you specified a guild ID, the results shown are the commands dedicated to the {{ $store.state.guild.name }} server. Click <a @click="switchGlobal" href="#">here</a> to load all the global commands.</p> -->
             <b-row>
                 <b-col v-for="command in $store.state.commands" :key="command.name" cols="12" sm="6" md="3">
-                    <SlashCommand :name="command.name" :description="command.description" />
+                    <SlashCommand :name="command.name" :description="command.description" :id="command.id" :options="command.options" />
                 </b-col>
                 <b-col cols="12" sm="6" md="3">
                     <CreateSlashCommand />

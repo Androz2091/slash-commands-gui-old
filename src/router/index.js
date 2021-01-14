@@ -16,9 +16,10 @@ const routes = [
         component: () => import('../views/Settings.vue')
     },
     {
-        path: '/yest',
-        name: 'App',
-        component: () => import('../views/Settings.vue')
+        // eslint-disable-next-line no-useless-escape
+        path: '\/commands\/([a-z0-9]+)(\/sub\/[a-z0-9]+)*',
+        name: 'Command Config',
+        component: () => import('../views/SlashCommandConfig.vue')
     }
 ];
 

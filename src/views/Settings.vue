@@ -70,9 +70,20 @@ export default {
             showOverlay: false
         };
     },
+    watch: {
+        token () {
+            this.checkFormValidity();
+        },
+        guildID () {
+            this.checkFormValidity();
+        },
+        proxyURL () {
+            this.checkFormValidity();
+        }
+    },
     methods: {
         handleSubmit () {
-            const isFormValid = this.checkValidity();
+            const isFormValid = this.checkFormValidity();
             if (isFormValid) {
                 this.$store.dispatch('saveSettings', {
                     token: this.token,
@@ -82,7 +93,7 @@ export default {
             }
             this.fetchApplication();
         },
-        checkValidity () {
+        checkFormValidity () {
             const tokenEmpty = this.token.length === 0;
             if (tokenEmpty) {
                 this.tokenState = false;
