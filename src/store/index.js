@@ -29,7 +29,7 @@ export default new Vuex.Store({
         settings: {
             token: '',
             guildID: '',
-            proxyURL: 'http://149.91.89.127:3700'
+            proxyURL: 'https://cors-anywhere.androz2091.fr'
         }
     },
     mutations: {
