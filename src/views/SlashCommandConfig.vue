@@ -137,18 +137,12 @@ export default {
 };
 </script>
 
-<style scoped>
-* {
-    color: white;
-}
+<style>
 .cmd-name {
     margin-top: 30px;
     margin-bottom: 30px;
     text-align: center;
-};
-</style>
-
-<style>
+}
 .jumbotron {
     background-color: #23272A !important;
 }

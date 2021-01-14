@@ -85,6 +85,9 @@ export default {
 html, body {
     background-color: #2C2F33 !important;
 }
+* {
+    color: white;
+}
 </style>
 
 <style lang="scss" scoped>
