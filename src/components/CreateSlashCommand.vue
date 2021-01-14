@@ -9,24 +9,24 @@
                 <b-form-group
                     label="Name"
                     label-for="name-input"
-                    :invalid-feedback="nameState"
-                    :state="nameStateEnabled"
+                    :invalid-feedback="nameStateMessage"
+                    :state="nameState"
                 >
                 <b-form-input
                     v-model="createName"
-                    :state="nameStateEnabled"
+                    :state="nameState"
                     required
                 ></b-form-input>
                 </b-form-group>
                 <b-form-group
                     label="Description"
                     label-for="name-input"
-                    :invalid-feedback="descriptionState"
-                    :state="descriptionStateEnabled"
+                    :invalid-feedback="descriptionStateMessage"
+                    :state="descriptionState"
                 >
                 <b-form-input
                     v-model="createDescription"
-                    :state="descriptionStateEnabled"
+                    :state="descriptionState"
                     required
                 ></b-form-input>
                 </b-form-group>
@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import { updateCommand } from '../api';
+
 export default {
     name: 'SlashCommand',
     props: {
@@ -49,35 +51,38 @@ export default {
         return {
             createName: '',
             createDescription: '',
-            nameState: '',
-            descriptionState: '',
-            nameStateEnabled: null,
-            descriptionStateEnabled: null,
+
+            nameState: null,
+            descriptionState: null,
+
+            nameStateMessage: '',
+            descriptionStateMessage: '',
+
             showCreateModal: false
         };
     },
     watch: {
         createName () {
-            this.checkFormValidityName();
+            this.checkFormValidity();
         },
         createDescription () {
-            this.checkFormValidityDescription();
+            this.checkFormValidity();
         }
     },
     methods: {
-        checkFormValidityName () {
+        checkFormValidity () {
             const nameEmpty = this.createName.length < 1;
             const nameExists = this.$store.state.commands.some((cmd) => cmd.name === this.createName);
-            this.nameStateEnabled = !(nameEmpty || nameExists);
-            // eslint-disable-next-line no-nested-ternary
-            this.nameState = nameEmpty ? 'Name is required' : nameExists ? 'This command already exists' : null;
-            return this.nameStateEnabled;
-        },
-        checkFormValidityDescription () {
+            if (nameEmpty || nameExists) {
+                this.nameState = false;
+                this.nameStateMessage = nameEmpty ? 'Name is required' : 'This command already exists';
+            } else this.nameState = true;
             const descriptionEmpty = this.createDescription.length < 1;
-            this.descriptionStateEnabled = !descriptionEmpty;
-            this.descriptionState = descriptionEmpty ? 'Description is required' : null;
-            return this.descriptionStateEnabled;
+            if (descriptionEmpty) {
+                this.descriptionState = false;
+                this.descriptionStateMessage = 'Description is required';
+            } else this.descriptionState = true;
+            return this.nameState || this.descriptionState;
         },
         handleOk (bvModalEvt) {
             bvModalEvt.preventDefault();
@@ -87,20 +92,23 @@ export default {
             this.createName = '';
             this.createDescription = '';
             this.nameState = null;
+            this.descriptionState = null;
         },
         handleSubmit () {
-            // Exit when the form isn't valid
-            if (!this.checkFormValidityName() && !this.checkFormValidityDescription()) {
-                return;
+            if (this.checkFormValidity()) {
+                updateCommand(this.$store.state.settings.token, this.$store.state.settings.proxyURL, this.$store.state.application.id, this.$store.state.settings.guildID, {
+                    name: this.createName,
+                    description: this.createDescription,
+                    type: 1
+                }).then(() => {
+                    // clear commands list
+                    this.$store.commit('SET_COMMANDS', []);
+                });
+                // Hide the modal manually
+                this.$nextTick(() => {
+                    this.$bvModal.hide('modal-prevent-closing');
+                });
             }
-            this.$store.dispatch('createCommand', {
-                name: this.createName,
-                description: this.createDescription
-            });
-            // Hide the modal manually
-            this.$nextTick(() => {
-                this.$bvModal.hide('modal-prevent-closing');
-            });
         },
         openSubCommand () {
             this.showCreateModal = true;

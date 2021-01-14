@@ -27,6 +27,18 @@ export default {
             loading: true
         };
     },
+    watch: {
+        commands () {
+            if (this.loading) return;
+            this.loading = true;
+            this.loadCommands();
+        }
+    },
+    computed: {
+        commands () {
+            return this.$store.state.commands;
+        }
+    },
     beforeCreate () {
         this.$store.dispatch('loadCache');
         if (
@@ -37,12 +49,7 @@ export default {
         ) this.$router.push('/settings');
     },
     mounted () {
-        fetchCommands(this.$store.state.settings.token, this.$store.state.settings.proxyURL, this.$store.state.application.id, this.$store.state.settings.guildID).then((commands) => {
-            this.$store.dispatch('setCommands', commands);
-            setTimeout(() => {
-                this.loading = false;
-            }, 1000);
-        });
+        this.loadCommands();
         if (window.location.protocol === 'https:') registerSW();
         window.addEventListener('beforeinstallprompt', (e) => {
             this.installPWA.prompt = () => {
@@ -56,6 +63,16 @@ export default {
             };
             setTimeout(() => this.installPWA.prompt(), 2000);
         });
+    },
+    methods: {
+        loadCommands () {
+            fetchCommands(this.$store.state.settings.token, this.$store.state.settings.proxyURL, this.$store.state.application.id, this.$store.state.settings.guildID).then((commands) => {
+                this.$store.dispatch('setCommands', commands);
+                setTimeout(() => {
+                    this.loading = false;
+                }, 1000);
+            });
+        }
     }
 };
 </script>
