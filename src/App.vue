@@ -39,17 +39,21 @@ export default {
             return this.$store.state.commands;
         }
     },
-    beforeCreate () {
+    beforeMount () {
         this.$store.dispatch('loadCache');
         if (
             !this.$store.state.settings.token
             || !this.$store.state.settings.proxyURL
             || !this.$store.state.application
             || !this.$store.state.guild
-        ) this.$router.push('/settings');
+        ) {
+            setTimeout(() => {
+                this.loading = false;
+                this.$router.push('/settings');
+            }, 300);
+        } else this.loadCommands();
     },
     mounted () {
-        this.loadCommands();
         if (window.location.protocol === 'https:') registerSW();
         window.addEventListener('beforeinstallprompt', (e) => {
             this.installPWA.prompt = () => {
