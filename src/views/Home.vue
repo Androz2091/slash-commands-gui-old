@@ -7,10 +7,14 @@
                 <div></div>
             </div>
         </b-container>
+        <Gui v-else />
     </div>
 </template>
 
 <script>
+import { fetchCommands } from '../api';
+import Gui from '../components/Gui.vue';
+
 export default {
     name: 'Home',
     data () {
@@ -18,7 +22,16 @@ export default {
             loading: true
         };
     },
+    mounted () {
+        fetchCommands(this.$store.state.settings.token, this.$store.state.settings.proxyURL, this.$store.state.application.id, this.$store.state.settings.guildID).then((commands) => {
+            this.$store.dispatch('setCommands', commands);
+            setTimeout(() => {
+                this.loading = false;
+            }, 1000);
+        });
+    },
     components: {
+        Gui
     }
 };
 </script>

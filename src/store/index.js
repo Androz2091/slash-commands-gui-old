@@ -67,6 +67,9 @@ export default new Vuex.Store({
                     commit('SET_GUILD', data.guild);
                 }
             }
+        },
+        setCommands ({ commit }, commands) {
+            commit('SET_COMMANDS', commands);
         }
     },
     modules: {

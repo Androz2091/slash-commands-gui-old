@@ -28,6 +28,6 @@ export function fetchGuild (token, proxyURL, guildID) {
 }
 
 export function fetchCommands (token, proxyURL, applicationID, guildID) {
-    const url = `applications/${applicationID}/${guildID ? `guilds/${guildID}` : ''}`;
+    const url = `applications/${applicationID}/${guildID ? `guilds/${guildID}/commands` : 'commands'}`;
     return request(token, proxyURL, url, 'GET');
 }
