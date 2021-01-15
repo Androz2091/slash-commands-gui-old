@@ -88,11 +88,14 @@ html, body {
 * {
     color: white;
 }
-.modal-title {
-    color: black;
+.close {
+    color: white !important;
 }
-.d-block {
-    color: black;
+.modal-content {
+    background-color: #2C2F33 !important;
+}
+.btn-primary {
+    background-color: #7289DA !important;
 }
 </style>
 
