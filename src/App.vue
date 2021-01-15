@@ -88,6 +88,12 @@ html, body {
 * {
     color: white;
 }
+.modal-title {
+    color: black;
+}
+.d-block {
+    color: black;
+}
 </style>
 
 <style lang="scss" scoped>
