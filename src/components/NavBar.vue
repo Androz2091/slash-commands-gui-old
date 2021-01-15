@@ -7,7 +7,7 @@
         <b-collapse id="nav-collapse" is-nav>
 
         <b-navbar-nav class="ml-auto">
-            <router-link to="settings"><b-button size="sm" class="my-2 my-sm-0 bg-discord-btn" :disabled="inSettings">Settings</b-button></router-link>
+            <router-link to="/settings"><b-button size="sm" class="my-2 my-sm-0 bg-discord-btn" :disabled="inSettings">Settings</b-button></router-link>
         </b-navbar-nav>
         </b-collapse>
     </b-navbar>
