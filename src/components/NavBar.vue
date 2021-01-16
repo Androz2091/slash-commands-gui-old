@@ -1,6 +1,6 @@
 <template>
     <b-navbar toggleable="lg" type="dark" variant="info" class="bg-discord">
-        <b-navbar-brand href="#">Slash Commands GUI</b-navbar-brand>
+        <b-navbar-brand href="/">Slash Commands GUI</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
