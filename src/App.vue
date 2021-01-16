@@ -82,12 +82,6 @@ export default {
 </script>
 
 <style lang="scss">
-html, body {
-    background-color: #2C2F33 !important;
-}
-* {
-    color: white;
-}
 .close {
     color: white !important;
 }

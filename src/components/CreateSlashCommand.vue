@@ -1,10 +1,10 @@
 <template>
     <div>
-        <b-card text-variant="white" class="text-center" header="Create a new command" @click="openSubCommand">
+        <b-card text-variant="white" class="text-center clickable-card cmd-create" header="Create a new command" @click="openSubCommand">
             <b-icon icon="plus-circle" class="h1 mb-2"></b-icon>
         </b-card>
 
-        <b-modal id="modal-prevent-closing" v-model="showCreateModal" centered title="Create a new Slash Command" @hidden="resetModal" @ok="handleOk" @show="resetModal" modal-ok="s">
+        <b-modal id="modal-prevent-closing" v-model="showCreateModal" centered title="Create a new Slash Command" @hidden="resetModal" @ok="handleOk" @show="resetModal">
              <form @submit.stop.prevent="handleSubmit">
                 <b-form-group
                     label="Name"
@@ -116,29 +116,3 @@ export default {
     }
 };
 </script>
-
-<style lang="scss" scoped>
-.center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-.card {
-    margin-top: 20px;
-    min-height: 140px;
-    cursor: pointer;
-    background-color: #7289DA;
-}
-.card-footer-item {
-    background-color: #23272A;
-}
-.card-header {
-    background-color: #23272A;
-}
-.card-body {
-    background-color: #2C2F33;
-}
-</style>

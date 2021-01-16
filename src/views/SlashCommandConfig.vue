@@ -16,7 +16,7 @@
                     :invalid-feedback="nameStateMessage"
                     :state="nameState"
                     >
-                    <b-input-group prepend="/" class="mt-3" style="color: black !important;">
+                    <b-input-group prepend="/" class="mt-3">
                         <b-form-input id="input-name" v-model="name" :state="nameState" trim></b-form-input>
                     </b-input-group>
                     </b-form-group>
@@ -48,11 +48,11 @@
             </b-overlay>
         </b-jumbotron>
         <b-jumbotron class="jumbo-config">
-            <h4>Parameters</h4>
+            <h4>Options</h4>
             <div>
-                <div class="params-container">
-                    <SlashCommandParam v-for="option in command.options" :key="option.name" :option="option" />
-                    <CreateSlashCommandParam />
+                <div class="options-container">
+                    <SlashCommandOptionCard v-for="option in command.options" :key="option.name" :option="option" />
+                    <CreateSlashCommandOption />
                 </div>
             </div>
         </b-jumbotron>
@@ -61,13 +61,13 @@
 
 <script>
 import { updateCommand } from '../api';
-import CreateSlashCommandParam from '../components/CreateSlashCommandParam.vue';
-import SlashCommandParam from '../components/SlashCommandParam.vue';
+import CreateSlashCommandOption from '../components/CreateSlashCommandOption.vue';
+import SlashCommandOptionCard from '../components/SlashCommandOptionCard.vue';
 
 export default {
     components: {
-        SlashCommandParam,
-        CreateSlashCommandParam
+        CreateSlashCommandOption,
+        SlashCommandOptionCard
     },
     name: 'SlashCommandConfig',
     data () {
@@ -153,7 +153,7 @@ export default {
 </script>
 
 <style>
-.params-container {
+.options-container {
     max-width: 250px;
     display: flex;
     flex-direction: row;
@@ -165,16 +165,10 @@ export default {
     margin-bottom: 30px;
     text-align: center;
 }
-.jumbotron {
-    background-color: #23272A !important;
-}
 .input-group-text {
     color: #23272A !important;
 }
 .form-control {
     color: black;
-}
-.bg-discord {
-    background-color: #7289DA;
 }
 </style>

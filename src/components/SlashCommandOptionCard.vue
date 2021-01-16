@@ -1,12 +1,15 @@
 <template>
-    <div class="create-param" @click="createParam">coucou</div>
+    <div class="cmd-opt" @click="editOption">{{ option.name }}</div>
 </template>
 
 <script>
 export default {
-    name: 'SlashCommandCreateParam',
+    name: 'SlashCommandOptionCard',
+    props: {
+        option: Object
+    },
     methods: {
-        createParam () {
+        editOption () {
 
         }
     }
@@ -14,11 +17,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.text-discord {
-    color: #7289DA;
-}
-
-.create-param {
+.cmd-opt {
     border-radius: inherit;
     cursor: pointer;
 
@@ -28,11 +27,15 @@ export default {
     margin-right: 10px;
     margin-top: 10px;
 
+    max-width: 100px;
+    min-width: 100px;
+
+    overflow: hidden;
     width: calc(80%);
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    padding: 0.75rem 1.25rem 0.75rem 0.75rem;
+    padding: 0.75rem 1.25rem;
     background-color: #2C2F33;
     border: 1px solid white;
 

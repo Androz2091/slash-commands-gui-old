@@ -1,0 +1,74 @@
+@import './_variables.scss';
+
+// This CSS is applied on all the page
+html, body {
+    background-color: $dark-black !important;
+}
+
+// This CSS is applied on all the space taken by the app
+#app {
+    background-color: $dark-black;
+    color: white;
+}
+
+.text-discord {
+    color: $discord-color;
+}
+.bg-discord {
+    background-color: $discord-color !important;
+}
+.bg-dark {
+    background-color: $dark-black;
+}
+.bg-dark-plus {
+    background-color: $dark-black-plus;
+}
+
+.text-black {
+    color: black;
+}
+.text-white {
+    color: white;
+}
+
+.card.clickable-card {
+    cursor: pointer;
+}
+
+// Bootstrap classes extended to match theme
+.jumbotron {
+    background-color: #23272A !important;
+}
+
+// Utils
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.card {
+    margin-top: 20px;
+    min-height: 140px;
+    background-color: white;
+    color: white;
+    &.cmd-create {
+        background-color: $discord-color !important;
+    }
+}
+.card-footer-item {
+    background-color: $dark-black;
+}
+.card-header {
+    background-color: $dark-black-plus;
+}
+.card-body {
+    background-color: $dark-black;
+}
+
+.modal-title {
+    color: white !important;
+}

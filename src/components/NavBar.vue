@@ -24,14 +24,7 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-* {
-    color: white;
-}
-.bg-discord {
-    background-color: #7289DA !important;
-}
+<style lang="scss" scoped>
 .bg-discord-btn {
     background-color: #FFFFFF;
     color: black;

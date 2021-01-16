@@ -1,15 +1,12 @@
 <template>
-    <div class="param" @click="editParam">{{ option.name }}</div>
+    <div class="create-cmd-opt" @click="createOption">coucou</div>
 </template>
 
 <script>
 export default {
-    name: 'SlashCommandParam',
-    props: {
-        option: Object
-    },
+    name: 'SlashCommandCreateOption',
     methods: {
-        editParam () {
+        createOption () {
 
         }
     }
@@ -17,8 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.param {
+.create-cmd-opt {
     border-radius: inherit;
     cursor: pointer;
 
@@ -28,15 +24,11 @@ export default {
     margin-right: 10px;
     margin-top: 10px;
 
-    max-width: 100px;
-    min-width: 100px;
-
-    overflow: hidden;
     width: calc(80%);
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1.25rem 0.75rem 0.75rem;
     background-color: #2C2F33;
     border: 1px solid white;
 
