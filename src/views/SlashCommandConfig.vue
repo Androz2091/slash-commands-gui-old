@@ -47,13 +47,28 @@
                 <b-button class="bg-discord" @click="handleSubmit">Update</b-button>
             </b-overlay>
         </b-jumbotron>
+        <b-jumbotron class="jumbo-config">
+            <h4>Parameters</h4>
+            <div>
+                <div class="params-container">
+                    <SlashCommandParam v-for="option in command.options" :key="option.name" :option="option" />
+                    <CreateSlashCommandParam />
+                </div>
+            </div>
+        </b-jumbotron>
     </b-container>
 </template>
 
 <script>
 import { updateCommand } from '../api';
+import CreateSlashCommandParam from '../components/CreateSlashCommandParam.vue';
+import SlashCommandParam from '../components/SlashCommandParam.vue';
 
 export default {
+    components: {
+        SlashCommandParam,
+        CreateSlashCommandParam
+    },
     name: 'SlashCommandConfig',
     data () {
         return {
@@ -138,6 +153,13 @@ export default {
 </script>
 
 <style>
+.params-container {
+    max-width: 250px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0;
+    border-radius: 0.25rem;
+}
 .cmd-name {
     margin-top: 30px;
     margin-bottom: 30px;
