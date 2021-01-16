@@ -1,24 +1,17 @@
-# slash-commands-gui
+# Slash Commands GUI
 
-## Project setup
-```
-yarn install
-```
+Explore, create, edit and update your bot's Discord Slash Commands more easily.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Features
 
-### Compiles and minifies for production
-```
-yarn build
-```
+> **Note**: Slash Commands GUI supports both **Guild** and **Global** scopes.
 
-### Lints and fixes files
-```
-yarn lint
-```
+* [x] **List** Slash Commands
+* [x] **Create** Slash Commands
+* [] **Delete** Slash Commands
+* [] **Edit** Slash Commands
+    - [x] name
+    - [x] description
+    - [] parameters
+    - [] subgroups
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
