@@ -1,5 +1,5 @@
 <template>
-    <div class="create-cmd-opt" @click="createOption">coucou</div>
+    <div class="create-cmd-opt" @click="createOption">New</div>
 </template>
 
 <script>
@@ -14,7 +14,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/_variables.scss';
+
 .create-cmd-opt {
+
+    color: white;
+
     border-radius: inherit;
     cursor: pointer;
 
@@ -30,8 +35,7 @@ export default {
 
     padding: 0.75rem 1.25rem 0.75rem 0.75rem;
     background-color: #2C2F33;
-    border: 1px solid white;
+    border: 1px solid $discord-color;
 
-    color: white;
 }
 </style>

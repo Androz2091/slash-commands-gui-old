@@ -27,9 +27,6 @@ export default {
     margin-right: 10px;
     margin-top: 10px;
 
-    max-width: 100px;
-    min-width: 100px;
-
     overflow: hidden;
     width: calc(80%);
     white-space: nowrap;

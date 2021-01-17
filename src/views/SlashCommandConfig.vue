@@ -155,6 +155,7 @@ export default {
 <style>
 .options-container {
     max-width: 250px;
+    min-width: 200px;
     display: flex;
     flex-direction: row;
     margin-bottom: 0;
