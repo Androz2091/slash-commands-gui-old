@@ -1,8 +1,10 @@
 <template>
     <b-container>
-        <b-button class="mb-2 cmd-name bg-discord" size="sm" @click="back">
-            <b-icon icon="arrow90deg-left" aria-label="Back"></b-icon>
-        </b-button>
+        <div>
+            <b-button class="back-button" style="float: right; background-color: transparent;" size="lg" @click="back">
+                <b-icon icon="x-circle" aria-label="Back"></b-icon>
+            </b-button>
+        </div>
         <h3 class="cmd-name">Configuration for command /{{ command.name }}</h3>
         <b-jumbotron class="jumbo-config">
             <h4>Configuration</h4>
@@ -162,9 +164,14 @@ export default {
     border-radius: 0.25rem;
 }
 .cmd-name {
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 30px;
     text-align: center;
+}
+.back-button {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.5rem;
 }
 .input-group-text {
     color: #23272A !important;
